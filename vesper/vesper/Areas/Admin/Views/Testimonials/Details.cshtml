@@ -1,0 +1,19 @@
+﻿@model Testimonial
+<div class="row">
+    <div class="col-md-8">
+        @if (String.IsNullOrEmpty(Model.AuthorImage))
+        {
+            <img src="~/assets/img/defPerson.jpg" style="width:200px" class="rounded d-block mb-3"/>
+        }
+        else
+        {
+            <img src="@Model.AuthorImage" style="width:200px" class="rounded d-block mb-3" />
+        }
+        <h4>Name: <b>@Model.AuthorName</b></h4>
+        <h4>Occupation: <b>@Model.AuthorOccupation</b></h4>
+        <div class="mb-5">
+            @Html.Raw(Model.Text)
+        </div>
+        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+    </div>
+</div>

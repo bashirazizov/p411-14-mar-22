@@ -1,0 +1,32 @@
+﻿@model ProjectsViewModel
+
+<main id="main">
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Projects</h2>
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>Projects Page</li>
+                </ol>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row portfolio-container">
+                <partial name="_ProjectsPartial" for="@Model.Projects">
+            </div>
+            <div class="text-center">
+                <a href="" id="load-more-button" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<input type="hidden" id="projCount" value="@ViewBag.Count" />
+
+@await Component.InvokeAsync("Testimonials")

@@ -1,0 +1,41 @@
+﻿@model List<Testimonial>
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Testimonials</h2>
+            <p>Magnam dolores commodi suscipit eum quidem consectetur velit</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                @foreach (Testimonial item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                @if (String.IsNullOrEmpty(item.AuthorImage))
+                                {
+                                    <img src="~/assets/img/defPerson.jpg" class="testimonial-img"  />
+                                }
+                                else
+                                {
+                                    <img src="@item.AuthorImage" class="testimonial-img" alt="">
+                                }
+                                <h3>@item.AuthorName - @item.AuthorOccupation</h3>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    @Html.Raw(item.Text)
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,55 @@
+﻿@model Testimonial
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add Testimonial</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Add" method="POST">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label asp-for="AuthorName"></label>
+                    <input type="text" class="form-control" asp-for="AuthorName">
+                    <span class="text-danger small" asp-validation-for="AuthorName"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="AuthorOccupation"></label>
+                    <input type="text" class="form-control" asp-for="AuthorOccupation">
+                    <span class="text-danger small" asp-validation-for="AuthorOccupation"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="AuthorImage"></label>
+                    <input type="text" class="form-control" asp-for="AuthorImage">
+                    <span class="text-danger small" asp-validation-for="AuthorImage"></span>
+                </div>
+                <div class="col-12 mb-4">
+                    <label asp-for="Text"></label>
+                    <textarea class="form-control" cols="30" rows="10" asp-for="Text"></textarea>
+                    <span class="text-danger small" asp-validation-for="Text"></span>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Text'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <style>
+        .ck-editor__editable {
+            min-height: 200px;
+        }
+    </style>
+}
